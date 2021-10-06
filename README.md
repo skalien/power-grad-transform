@@ -91,9 +91,14 @@ If you want to check performance on the test set, append the following flag:
 --validate \
 ```
 
-If you want to resume from one of the aforementioned checkpoints given in the table above, append the following flag:
+If you want to resume from one of the aforementioned checkpoints given in the
+table above, append the `resume` flag followed by the path to the
+`checkpoint.pth.tar` file:
 ```
 --resume <path_to_checkpoint> \
+
+# Example
+--resume resnet50/cosine-scheduler-alpha-0.3-label-smoothing/model_best.pth.tar \
 ```
 
 To list all arguments run:
