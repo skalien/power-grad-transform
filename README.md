@@ -1,9 +1,10 @@
 # Softmax Gradient Tampering
 
-### Link to all checkpoint files
+## Link to all checkpoint files
+
 https://drive.google.com/drive/folders/15QOyJaCETrKtbUrA6FSFPe5Nuh3SDd-j?usp=sharing
 
-### Table of experiments and checkpoints
+## Table of experiments and checkpoints
 
 | Model            | Scheduler | Hyperparameter (α) | Test Acc | Checkpoint Path                                     |
 | :--------------- | :-------- | :----------------- | :------- | :-------------------------------------------------- |
@@ -30,3 +31,39 @@ https://drive.google.com/drive/folders/15QOyJaCETrKtbUrA6FSFPe5Nuh3SDd-j?usp=sha
 | SEResNet-50      | Cosine    | 1                  | 77.218   | seresnet50/cosine-scheduler-alpha-1.0               |
 |                  | Cosine    | 0.3                | 77.952   | seresnet50/cosine-scheduler-alpha-0.3               |
 
+
+## Training recipies
+
+```
+# Set NUM_GPU to number of GPUs
+export NUM_GPU=4
+
+python -m torch.distributed.run \
+--standalone \
+--nnodes=1 \
+--nproc_per_node=$NUM_GPU \
+train.py \
+--dali \
+--amp \
+--momentum 0.9 \
+--weight-decay 5e-4 \
+--sched cosine \
+--model resnet18 \
+--batch-size 256 \
+--lr 1e-1 \
+--epochs 90 \
+--warmup-epochs 5 \
+--cooldown-epochs 10 \
+--modify-softmax 0.25 \
+--logit-stats \
+```
+
+If you want to perform only validation, append the following flag:
+```
+--validate \
+```
+
+If you want to resume from one of the aforementioned checkpoints, append the following flag:
+```
+--resume <path_to_checkpoint> \
+```
