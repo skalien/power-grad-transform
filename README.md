@@ -76,7 +76,7 @@ train.py \
 
 `--logit-stats` flag prints logit statistics as (norm,max,mean,min)
 
-Possible values of models can be:
+Possible values of `--model` can be:
 ```
 resnet18
 resnet50
