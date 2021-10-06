@@ -31,6 +31,7 @@ https://drive.google.com/drive/folders/15QOyJaCETrKtbUrA6FSFPe5Nuh3SDd-j?usp=sha
 | SEResNet-50      | Cosine    | 1                  | 77.218   | seresnet50/cosine-scheduler-alpha-1.0               |
 |                  | Cosine    | 0.3                | 77.952   | seresnet50/cosine-scheduler-alpha-0.3               |
 
+Training logs can be found in the same checkpoint folder with filename `summary.csv`.
 
 ## Requirements
 We recommend using the PyTorch docker container provided by NVIDIA. If you have
@@ -84,6 +85,11 @@ resnet101
 resnet18_wobn
 seresnet18
 seresnet101
+```
+
+Label smoothing can be invoked by:
+```
+--smoothing 0.1 \
 ```
 
 If you want to check performance on the test set, append the following flag:
