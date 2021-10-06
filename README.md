@@ -92,7 +92,7 @@ If you want to check performance on the test set, append the following flag:
 ```
 
 If you want to resume from one of the aforementioned checkpoints given in the
-table above, append the `resume` flag followed by the path to the
+table above, append the `--resume` flag followed by the path to the
 `checkpoint.pth.tar` file:
 ```
 --resume <path_to_checkpoint> \
