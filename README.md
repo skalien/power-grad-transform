@@ -32,6 +32,19 @@ https://drive.google.com/drive/folders/15QOyJaCETrKtbUrA6FSFPe5Nuh3SDd-j?usp=sha
 |                  | Cosine    | 0.3                | 77.952   | seresnet50/cosine-scheduler-alpha-0.3               |
 
 
+## Requirements
+We recommend using the PyTorch docker container provided by NVIDIA. If you have
+docker installed, you can simply use the following command to download the
+PyTorch docker container.
+```
+docker pull nvcr.io/nvidia/pytorch:21.09-py3
+```
+Setup instructions are available at:
+```
+https://ngc.nvidia.com/catalog/containers/nvidia:pytorch
+```
+
+
 ## Training recipies
 
 ```
@@ -43,6 +56,7 @@ python -m torch.distributed.run \
 --nnodes=1 \
 --nproc_per_node=$NUM_GPU \
 train.py \
+--data-dir IMAGENET_DIR \
 --dali \
 --amp \
 --momentum 0.9 \
@@ -58,12 +72,21 @@ train.py \
 --logit-stats \
 ```
 
-If you want to perform only validation, append the following flag:
+`--modify-softmax` flag effectuates softmax-gradient-tampering with the desired value of $\alpha$.
+
+`--logit-stats` flag prints logit statistics as (norm,max,mean,min)
+
+If you want to check performance on the test set, append the following flag:
 ```
 --validate \
 ```
 
-If you want to resume from one of the aforementioned checkpoints, append the following flag:
+If you want to resume from one of the aforementioned checkpoints given in the table above, append the following flag:
 ```
 --resume <path_to_checkpoint> \
+```
+
+To list all arguments run:
+```
+python train.py -h
 ```
