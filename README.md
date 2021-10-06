@@ -76,6 +76,16 @@ train.py \
 
 `--logit-stats` flag prints logit statistics as (norm,max,mean,min)
 
+Possible values of models can be:
+```
+resnet18
+resnet50
+resnet101
+resnet18_wobn
+seresnet18
+seresnet101
+```
+
 If you want to check performance on the test set, append the following flag:
 ```
 --validate \
