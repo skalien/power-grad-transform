@@ -56,7 +56,7 @@ python -m torch.distributed.run \
 --nnodes=1 \
 --nproc_per_node=$NUM_GPU \
 train.py \
---data-dir IMAGENET_DIR \
+--data_dir IMAGENET_DIR \
 --dali \
 --amp \
 --momentum 0.9 \
