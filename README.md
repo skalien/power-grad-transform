@@ -75,7 +75,7 @@ train.py \
 
 `--modify-softmax` flag effectuates softmax-gradient-tampering with the desired value of $\alpha$.
 
-`--logit-stats` flag prints logit statistics as (norm,max,mean,min)
+`--logit-stats` flag prints logit statistics as (norm,mean,max,var)
 
 Possible values of `--model` can be:
 ```
