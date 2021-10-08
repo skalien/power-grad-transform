@@ -4,6 +4,10 @@
 
 https://drive.google.com/drive/folders/15QOyJaCETrKtbUrA6FSFPe5Nuh3SDd-j?usp=sharing
 
+### Code related to softmax gradient tampering is located at:
+https://github.com/bishshoy/softmax-gradient-tampering/blob/2560e61e5c0d241fda2e62e78cc049df3c4da9ac/timm/models/resnet.py#L831
+
+
 ## Table of experiments and checkpoints
 
 | Model            | Scheduler | Hyperparameter (α) | Test Acc | Checkpoint Path                                     |
@@ -111,11 +115,6 @@ To list all arguments run:
 ```
 python train.py -h
 ```
-
-Code related to softmax gradient tampering is located at:
-
-https://github.com/bishshoy/softmax-gradient-tampering/blob/2560e61e5c0d241fda2e62e78cc049df3c4da9ac/timm/models/resnet.py#L831
-
 
 Code adapted from https://github.com/rwightman/pytorch-image-models.
 
