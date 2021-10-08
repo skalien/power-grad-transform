@@ -116,6 +116,6 @@ To list all arguments run:
 python train.py -h
 ```
 
-Code adapted from https://github.com/rwightman/pytorch-image-models.
+Repo is a fork of https://github.com/rwightman/pytorch-image-models.
 
 Thanks to Ross Wightman.
