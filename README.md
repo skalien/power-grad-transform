@@ -1,4 +1,4 @@
-# Softmax Gradient Tampering
+# PowerGrad Transform
 
 ## Link to all checkpoint files
 
